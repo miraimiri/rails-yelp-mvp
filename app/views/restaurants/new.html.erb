@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Add a new restaurant!</h1>
+    <%= simple_form_for(@restaurant) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :category, collection: Restaurant::CATEGORIES, as: :check_boxes %>
+      <%= f.input :phone_number %>
+      <%= f.submit class: 'btn btn-info' %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <% end %>
+</div>

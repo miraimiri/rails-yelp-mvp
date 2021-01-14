@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <h1><%= @restaurant.name %></h1>
+  </div>
+  <div class="details">
+    <p>Category: <%= @restaurant.category.capitalize %> - Phone Number: <%= @restaurant.phone_number %></p>
+    <p>Address: <%= @restaurant.address %></p>
+  </div>
+
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.rating %>/5 <%= review.content %></li>
+    <% end %>
+  </ul>
+<br>
+  <div class="footer">
+    <ul>
+      <li><%= link_to "Back", restaurants_path %></li>
+      <li><%= link_to "Review", new_restaurant_review_path(@restaurant) %></li>
+    </ul>
+  </div>
+</div>

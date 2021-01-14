@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Add a new review for <%= @restaurant.name %>!</h1>
+    <%= simple_form_for [ @restaurant, @review] do |f| %>
+      <%= f.input :rating, input_html: { min: '1', max: '5', step: 'any' }  %>
+      <%= f.input :content %>
+      <%= f.submit class: 'btn btn-info' %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <% end %>
+</div>
